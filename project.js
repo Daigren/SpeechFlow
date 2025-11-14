@@ -39,8 +39,10 @@ function createNewMessage() {
     newMessage.placeholder = "";
     newMessage.maxLength = 500;
 
-    newTimer.className = 'note bg-[#383838] h-[45px] w-100 mt-3 flex items-center px-4 group hover:bg-gray-500 transition-colors rounded-[10px] p-4 resize-none mx-auto block';
-    newTimer.innerHTML = `<span class="text-[#5ffeb9] text-[24px]">create a timer ${timerCount}</span>`;
+    newTimer.className = 'note bg-[#383838] h-[45px] w-100 mt-3 flex items-center px-4 group hover:bg-gray-500 transition-colors rounded-[10px] p-4 resize-none mx-auto block mb-3';
+    newTimer.innerHTML = `<span class="text-[#5ffeb9] text-[24px]">create a timer ${timerCount}</span>
+    <img src="./files/Timer.svg" class="ml-3 w-[18px]">
+    `;
 
     main.insertBefore(newMessage, line);
     main.insertBefore(newTimer, line);

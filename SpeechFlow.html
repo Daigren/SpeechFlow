@@ -32,11 +32,14 @@
                 </button>
 
                 <button class="relative bg-[#262626] rounded-[100px] h-[35px] w-full mt-8 flex items-center justify-between px-4 group hover:bg-gray-600 transition-colors" id="create">
-                    <span class="text-[#5ffeb9] text-[24px] justify-between">Create new +</span>
-                    
+                    <div class="flex">
+                        <span class="text-[#5ffeb9] text-[24px] justify-between">Create new</span>
+                        <img src="./files/Create.svg" class="ml-3">
+                    </div>
                 </button>
                 <button class="fixed bottom-5 bg-[#262626] rounded-[20px] h-[45px] w-[25] flex items-center justify-between px-4 group hover:bg-gray-600 transition-colors" id="start">
-                    <span class="text-[#5ffeb9] text-[24px]">start</span>                    
+                    <span class="text-[#5ffeb9] text-[24px]">Start</span>
+                    <img src="./files/Start.svg" class="ml-1">
                 </button>
             </aside>
 
@@ -53,8 +56,9 @@
 </textarea>
                     <div class="">
                         <button class="bg-[#383838] h-[45px] w-100 mt-3 flex items-center px-4 group hover:bg-gray-500 transition-colors 
-                        rounded-[10px] p-4 resize-none mx-auto block" id="timerButton">
-                            <span class="text-[#5ffeb9] text-[24px]">create a timer</span>                    
+                        rounded-[10px] p-4 resize-none mx-auto block mb-3" id="timerButton">
+                            <span class="text-[#5ffeb9] text-[24px]">Create a timer</span> 
+                            <img src="./files/Timer.svg" class="ml-3 w-[18px]">
                         </button>
                         <!-- выплывающее окно -->
                         
@@ -89,12 +93,12 @@
                     
                 <div class="relative">        
                     
-                    <button class="fixed bottom-20 right-8 bg-[#383838] rounded-[20px] h-[45px] flex items-center justify-between px-4 group hover:bg-gray-500 transition-colors" id="up">
-                        <span class="text-[#5ffeb9] text-[24px]">⇧</span>
+                    <button class="fixed bottom-20 right-8 rounded-[20px] h-[45px] flex items-center justify-between px-4 group hover:bg-gray-500 transition-colors" id="up">
+                        <img src="./files/up.svg">
                     </button>
                     
-                    <button class="fixed bottom-5 right-8 bg-[#383838] rounded-[20px] h-[45px] flex items-center justify-between px-4 group hover:bg-gray-500 transition-colors" id="down">
-                        <span class="text-[#5ffeb9] text-[24px]">⇩</span>
+                    <button class="fixed bottom-5 right-8 rounded-[20px] h-[45px] flex items-center justify-between px-4 group hover:bg-gray-500 transition-colors" id="down">
+                        <img src="./files/Down.svg">
                     </button>
                 </div>
                 <hr id="line" style="background-color: #2c2c2c; height: 3px; border: none;">
