@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выпадающие окна на Tailwind</title>
+    <!-- Подключаем Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Подключаем наш JavaScript файл -->
+    <script src="script.js" defer></script>
+</head>
+<body class="p-8 bg-gray-50 min-h-screen">
+    <div class="max-w-4xl mx-auto space-y-8">
+        <!-- Заголовок -->
+        <h1 class="text-3xl font-bold text-gray-800 text-center">Примеры выпадающих окон</h1>
+        
+        <!-- Секция 1: Модальное окно -->
+        <section class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">1. Модальное окно</h2>
+            <button 
+                id="openModalBtn"
+                class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition"
+            >
+                Открыть модальное окно
+            </button>
+
+            <!-- Модальное окно -->
+            <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+                <div class="bg-white rounded-lg shadow-xl w-full max-w-md mx-4">
+                    <!-- Заголовок -->
+                    <div class="flex justify-between items-center p-4 border-b">
+                        <h3 class="text-lg font-semibold">Заголовок окна</h3>
+                        <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Контент -->
+                    <div class="p-4">
+                        <p>Это содержимое модального окна. Вы можете добавить сюда любые элементы.</p>
+                    </div>
+                    
+                    <!-- Футер -->
+                    <div class="flex justify-end gap-2 p-4 border-t">
+                        <button id="cancelModalBtn" class="px-4 py-2 text-gray-600 hover:text-gray-800 transition">
+                            Отмена
+                        </button>
+                        <button class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded transition">
+                            Сохранить
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция 2: Выпадающее меню -->
+        <section class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">2. Выпадающее меню</h2>
+            <div class="relative inline-block">
+                <!-- Кнопка -->
+                <button 
+                    id="dropdownBtn"
+                    class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition"
+                >
+                    Меню
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+
+                <!-- Выпадающий контент -->
+                <div id="dropdown" class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border hidden z-50">
+                    <div class="py-1">
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition">Профиль</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition">Настройки</a>
+                        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition">Сообщения</a>
+                        <div class="border-t my-1"></div>
+                        <a href="#" class="block px-4 py-2 text-red-600 hover:bg-red-50 transition">Выйти</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция 3: Всплывающая подсказка -->
+        <section class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">3. Всплывающая подсказка</h2>
+            <div class="relative inline-block group">
+                <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded-lg transition">
+                    Наведи на меня
+                </button>
+                
+                <!-- Tooltip -->
+                <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block">
+                    <div class="bg-gray-800 text-white text-sm rounded py-1 px-2 whitespace-nowrap">
+                        Это всплывающая подсказка
+                        <div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция 4: Уведомление -->
+        <section class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">4. Всплывающее уведомление</h2>
+            <button 
+                id="showToastBtn"
+                class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg transition"
+            >
+                Показать уведомление
+            </button>
+
+            <!-- Toast контейнер -->
+            <div id="toastContainer" class="fixed top-4 right-4 z-50"></div>
+        </section>
+
+        <!-- Секция 5: Боковая панель -->
+        <section class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-semibold mb-4">5. Боковая панель</h2>
+            <button 
+                id="openSidebarBtn"
+                class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg transition"
+            >
+                Открыть боковую панель
+            </button>
+
+            <!-- Боковая панель -->
+            <div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform z-50">
+                <div class="p-4 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Меню</h3>
+                        <button id="closeSidebarBtn" class="text-gray-500 hover:text-gray-700">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <nav class="p-4">
+                    <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">Главная</a>
+                    <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">О нас</a>
+                    <a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-100 rounded">Контакты</a>
+                </nav>
+            </div>
+            <!-- Затемнение фона -->
+            <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+        </section>
+    </div>
+</body>
+</html>

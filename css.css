@@ -1,0 +1,81 @@
+/* Базовые стили Tailwind 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  h1 {
+    @apply text-4xl font-bold;
+  }
+  
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+  
+  a {
+    @apply text-blue-600 hover:text-blue-800;
+  }
+}
+
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6;
+  }
+}
+
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.section-button {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+*/
+
+/*скролл*/
+
+html, body {
+    overflow-x: hidden;
+    overflow-y: auto; 
+    width: 100%;
+}
+
+/*Кастомный скроллбар*/
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2b2b2b;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #383838;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #616161;
+}
+
+::-webkit-scrollbar-horizontal {
+    display: none;
+    height: 0;
+}
