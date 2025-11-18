@@ -1,56 +1,25 @@
-//=================== таймер
+let timerModal = document.getElementById('timerModal');
 
-// Переменные таймера
-let totalSeconds = 0;
-let timerId = null;
-
-const minutesInput = document.getElementById('minutesInput');
-const timerElement = document.getElementById('timer');
-const startButtonTimer = document.getElementById('startTimer');
-const resetButton = document.getElementById('reset');
-
-
-// Функция обновления отображения таймера
-function updateDisplay() {
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-    
-    timerElement.textContent = 
-        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+function resetTimer() {
+    timerModal.textContent  = 0
 }
 
-// Функция обратного отсчета
-function countdown() {
-    if (totalSeconds > 0) {
-        totalSeconds--;
-        updateDisplay();
-    } else {
-        clearInterval(timerId);
-        timerId = null;
-        alert('Время вышло!');
-    }
+function addTimer() {
+    timerModal.textContent++
 }
 
-// Старт таймера
-startButtonTimer.addEventListener('click', function() {
-    if (timerId) return; // Если таймер уже запущен
-    
-    const minutes = parseInt(minutesInput.value);
-    
-    if (minutes > 0) {
-        totalSeconds = minutes * 60;
-        updateDisplay();
-        timerId = setInterval(countdown, 1000);
-    } else {
-        alert('Введите количество минут!');
-    }
-});
+function subtractTimer() {
+    timerModal.textContent--
+}
 
-// Сброс таймера
-resetButton.addEventListener('click', function() {
-    clearInterval(timerId);
-    timerId = null;
-    totalSeconds = 0;
-    updateDisplay();
-    minutesInput.value = '';
-});
+function startTimer() {
+    let interval = setInterval(() => {                
+        timerModal.textContent--;
+
+        if (timerModal.textContent <= 0) {
+            clearInterval(interval);
+            alert("Время вышло")
+            resetTimer()
+        }
+    }, 1000)
+}

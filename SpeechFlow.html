@@ -27,7 +27,7 @@
                     <p class="text-[#5ffeb9] text-[40px] font-['Iceland']">SpeechFlow</p>
                 </div>
                 
-                <button class="note bg-[#262626] rounded-[10px] h-[45px] w-full mt-8 flex items-center justify-between px-4 group hover:bg-gray-600 transition-colors" id="note">
+                <button class="note bg-[#262626] rounded-[10px] h-[45px] w-full mt-8 flex items-center justify-between px-4 group hover:bg-gray-600 transition-colors" id="11" onclick="scrollNote(id)">
                     <span class="text-white text-[24px]">Note 1</span>                    
                 </button>
 
@@ -45,7 +45,7 @@
 
             <!-- Main Area -->
             <main class="flex-1 bg-gray-bg p-8">
-                <textarea class="bg-[#383838] text-white border-[#262626] rounded-[20px] p-4 resize-none mx-auto block text-1" id="message1" name="message1" rows="20" cols="100" placeholder="" maxlength="500"></textarea>
+                <textarea class="bg-[#383838] text-white border-[#262626] rounded-[20px] p-4 resize-none mx-auto block text-1" id="1" name="message1" rows="20" cols="100" placeholder="" maxlength="500"></textarea>
                     <div class="">
                         <button class="bg-[#383838] h-[45px] w-100 mt-3 flex items-center px-4 group hover:bg-gray-500 transition-colors 
                         rounded-[10px] p-4 resize-none mx-auto block mb-3" id="timerButton">
@@ -56,26 +56,28 @@
                         
                         <div id="modal" class="hidden fixed right-0 top-0 w-[300px] bg-[#0b997a] rounded-[10px]">                            
                             <div class="bg-[#4f4f4f] p-6 shadow-lg">
-                                
-                                <div class="text-center max-w-md mx-auto">                                    
-                                    <input 
-                                        id="minutesInput" 
-                                        type="number" 
-                                        placeholder="" 
-                                        class="border bg-[#383838] text-white p-2 rounded w-full mb-4"
-                                        min="1"
-                                    >
-                                    
-                                    <div id="timer" class="text-6xl text-[#5ffeb9] font-bold mb-4">00:00</div>
-                                    
-                                    <button id="startTimer" class="bg-[#383838] px-6 py-2 hover:bg-gray-500 transition-colors rounded-[10px] mr-2">
-                                        <p class="text-[#5ffeb9]">Старт</p> 
-                                    </button>
-                                    <button id="reset" class="bg-[#383838] px-6 py-2 hover:bg-gray-500 transition-colors rounded-[10px]">
-                                        <p class="text-[#5ffeb9]">Сброс</p>
-                                    </button>
-                                </div>
+                                <!-- Timer -->                                
+                                <div class="">
+                                    <div class="flex justify-center items-center">
+                                        <button class="h-[20px] mr-3 rounded-[10px] flex items-center justify-center px-4" onclick="subtractTimer()">
+                                            <p class="text-white text-[30px]"><strong>-</strong></p>
+                                        </button>
+                                        <p class="text-[50px] text-[#5ffeb9]"><strong id="timerModal">0</strong></p>
+                                        <button class="h-[20px] ml-3 rounded-[10px] flex items-center justify-center px-4" onclick="addTimer()">
+                                            <p class="text-white text-[30px]"><strong>+</strong></p>
+                                        </button>
+                                    </div>
 
+                                    <div class="flex justify-center">
+                                        <button class="w-full h-[35px] mr-4 bg-[#2b2b2b]/50 rounded-[5px] flex items-center justify-center px-4 group hover:bg-[#2b2b2b]/30 transition-colors" onclick="startTimer()">
+                                            <p class="text-[#5ffeb9]">Start</p>
+                                        </button>
+
+                                        <button class="w-full bg-[#2b2b2b]/50 rounded-[5px] flex items-center justify-center px-4 group hover:bg-[#2b2b2b]/30 transition-colors" onclick="resetTimer()">
+                                            <p class="text-[#5ffeb9]">Reset</p>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                             <button id="closeModal" class="text-white py-2 hover:bg-gray-500 transition-colors rounded-b-[10px] flex items-center justify-center w-full">
                                 <p class="text-[24px]">Close</p>
