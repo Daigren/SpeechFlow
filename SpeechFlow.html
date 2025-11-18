@@ -32,7 +32,7 @@
                 </button>
 
                 <button class="relative bg-[#262626] rounded-[100px] h-[35px] w-full mt-8 flex items-center justify-between px-4 group hover:bg-gray-600 transition-colors" id="create">
-                    <div class="flex">
+                    <div class="flex" onclick="createNewMessage()">
                         <span class="text-[#5ffeb9] text-[24px] justify-between">Create new</span>
                         <img src="./files/Create.svg" class="ml-3">
                     </div>
@@ -45,15 +45,7 @@
 
             <!-- Main Area -->
             <main class="flex-1 bg-gray-bg p-8">
-                
-<textarea class="bg-[#383838] text-white border-[#262626] rounded-[20px] p-4 resize-none mx-auto block text-1"
-    id="message1"
-    name="message1" 
-    rows="20" 
-    cols="100" 
-    placeholder=""
-    maxlength="500">
-</textarea>
+                <textarea class="bg-[#383838] text-white border-[#262626] rounded-[20px] p-4 resize-none mx-auto block text-1" id="message1" name="message1" rows="20" cols="100" placeholder="" maxlength="500"></textarea>
                     <div class="">
                         <button class="bg-[#383838] h-[45px] w-100 mt-3 flex items-center px-4 group hover:bg-gray-500 transition-colors 
                         rounded-[10px] p-4 resize-none mx-auto block mb-3" id="timerButton">
@@ -93,11 +85,11 @@
                     
                 <div class="relative">        
                     
-                    <button class="fixed bottom-20 right-8 rounded-[20px] h-[45px] flex items-center justify-between px-4 group hover:bg-gray-500 transition-colors" id="up">
+                    <button class="fixed bottom-20 right-8 rounded-[20px] h-[45px] flex items-center justify-between px-4 group hover:bg-gray-500 transition-colors" id="up" onclick="scrollUp()">
                         <img src="./files/up.svg">
                     </button>
                     
-                    <button class="fixed bottom-5 right-8 rounded-[20px] h-[45px] flex items-center justify-between px-4 group hover:bg-gray-500 transition-colors" id="down">
+                    <button class="fixed bottom-5 right-8 rounded-[20px] h-[45px] flex items-center justify-between px-4 group hover:bg-gray-500 transition-colors" id="down" onclick="scrollDown()">
                         <img src="./files/Down.svg">
                     </button>
                 </div>
