@@ -1,37 +1,54 @@
-import { useState, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
-export function useSpeech(onResultCallback) {
+export const useSpeech = (onResult) => {
   const [isListening, setIsListening] = useState(false);
+  const [recognition, setRecognition] = useState(null);
 
-  const startListening = useCallback(() => {
-    // Проверка поддержки браузером
+  useEffect(() => {
+    // Поддержка для разных браузеров
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     
-    if (!SpeechRecognition) {
-      alert("Ваш браузер не поддерживает Web Speech API");
-      return;
+    if (SpeechRecognition) {
+      const recog = new SpeechRecognition();
+      recog.lang = 'ru-RU';
+      
+      // 1. Слушать постоянно, не выключаться после паузы
+      recog.continuous = true;      
+      // 2. Отдавать результаты в реальном времени (пока слово еще говорится)
+      recog.interimResults = true;  
+
+      recog.onstart = () => setIsListening(true);
+      recog.onend = () => setIsListening(false);
+
+      recog.onresult = (event) => {
+        let fullTranscript = '';
+        
+        // Проходимся по всем результатам и склеиваем их в один текст
+        for (let i = 0; i < event.results.length; i++) {
+          fullTranscript += event.results[i][0].transcript + ' ';
+        }
+        
+        // Передаем готовую строку в App.jsx
+        onResult(fullTranscript);
+      };
+
+      setRecognition(recog);
+    } else {
+      console.error("Браузер не поддерживает Web Speech API");
     }
+  }, []); // Пустой массив зависимостей, чтобы создать объект один раз
 
-    const recognition = new SpeechRecognition();
-    recognition.lang = 'ru-RU'; // Ставим русский язык
-    recognition.continuous = true; // Остановится после одной фразы
+  const startListening = () => {
+    if (recognition) {
+      recognition.start();
+    }
+  };
 
-    recognition.onstart = () => setIsListening(true);
-    
-    recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript;
-      onResultCallback(transcript); // Отправляем текст обратно в App
-    };
+  const stopListening = () => {
+    if (recognition) {
+      recognition.stop();
+    }
+  };
 
-    recognition.onerror = (event) => {
-      console.error("Ошибка распознавания:", event.error);
-      setIsListening(false);
-    };
-
-    recognition.onend = () => setIsListening(false);
-
-    recognition.start();
-  }, [onResultCallback]);
-
-  return { startListening, isListening };
-}
+  return { startListening, stopListening, isListening };
+};

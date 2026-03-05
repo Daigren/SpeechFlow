@@ -15,11 +15,11 @@ export default function App() {
   }, [textSpeach])
 
   const { startListening, isListening } = useSpeech((transcript) => {
-    // ИСПРАВЛЕНИЕ: Режем речь микрофона на слова по пробелам
+    // Режем всю услышанную на данный момент речь на слова
     const recognizedWords = transcript.split(/\s+/).filter(Boolean);
     
-    // Добавляем слова в массив по одному
-    setSpokenSentences(prev => [...prev, ...recognizedWords])
+    // ПЕРЕЗАПИСЫВАЕМ стейт полностью (без prev)
+    setSpokenSentences(recognizedWords);
   })
 
   // Нормализация (убираем все знаки препинания)
