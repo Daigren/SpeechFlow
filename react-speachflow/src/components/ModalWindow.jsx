@@ -7,13 +7,11 @@ export default function ModalWindow({ notes, onCreateNew, onSelectNote }) {
     const openModal = () => setModalIsOpen(true);
     const closeModal = () => setModalIsOpen(false);
 
-    // Функция-обертка: создаем заметку и сразу закрываем меню
     const handleCreateNew = () => {
         onCreateNew();
         closeModal();
     };
 
-    // Функция-обертка: выбираем заметку и закрываем меню
     const handleSelectNote = (index) => {
         onSelectNote(index);
         closeModal();
@@ -21,7 +19,6 @@ export default function ModalWindow({ notes, onCreateNew, onSelectNote }) {
 
     const modalContent = (
         <div id='main-menu'>
-            {/* 1. Автоматически выводим все существующие заметки */}
             {notes.map((note, index) => (
                 <button 
                     key={note.id} 
@@ -34,7 +31,6 @@ export default function ModalWindow({ notes, onCreateNew, onSelectNote }) {
             
             <hr style={{ margin: '10px 0', borderColor: 'gray' }} />
             
-            {/* 2. Кнопка создания новой заметки */}
             <button className='createNew' onClick={handleCreateNew}>
                 + Create new
             </button>
@@ -50,7 +46,7 @@ export default function ModalWindow({ notes, onCreateNew, onSelectNote }) {
                 isOpen={modalIsOpen} 
                 onRequestClose={closeModal} 
                 className="custom-modal-content"
-                ariaHideApp={false} // Добавлено, чтобы react-modal не ругался в консоли Vite
+                ariaHideApp={false}
             >
                 {modalContent}
             </Modal>

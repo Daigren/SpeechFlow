@@ -1,6 +1,5 @@
 import ModalWindow from './ModalWindow'
 
-// Не забудь добавить user, onLogin и onLogout в пропсы!
 export default function Header({ notes, activeIndex, noteName, onNext, onPrev, canPrev, canNext, onCreateNew, onSelectNote, user, onLogin, onLogout }) {
   return (
     <header>
@@ -33,7 +32,6 @@ export default function Header({ notes, activeIndex, noteName, onNext, onPrev, c
 
         <div style={{ marginLeft: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
             {user ? (
-              // Если пользователь вошел: показываем фото и кнопку выхода
               <>
                 <img 
                   src={user.photoURL} 
@@ -43,7 +41,6 @@ export default function Header({ notes, activeIndex, noteName, onNext, onPrev, c
                 <button id='authButtonStyleOn' onClick={onLogout} >Log out</button>
               </>
             ) : (
-              // Если НЕ вошел: показываем кнопку входа
               <button id='authButtonStyle' onClick={onLogin} >Log in</button>
             )}
           </div>

@@ -171,6 +171,21 @@ main {
     background-color: #464646;
 }
 
+#timerButton {
+    background-color: #535353;
+    color: #5FFEB9;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    text-align: left;
+    transition: all 0.15s ease-in-out;
+}
+
+#timerButton:hover {
+    background-color: #464646;
+}
+
 #micro {
     width: 60px;
     height: 60px;
@@ -189,6 +204,11 @@ main {
     font-size: 20px;
     width: 70px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: all 0.15s ease-in-out;
+}
+
+#authButtonStyle:hover {
+    color: rgb(192, 192, 192);
 }
 
 #authButtonStyleOn {
@@ -199,6 +219,79 @@ main {
     font-size: 20px;
     width: 80px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: all 0.15s ease-in-out;
+}
+
+#authButtonStyleOn:hover {
+    color: rgb(192, 192, 192);
+}
+
+#timer {
+    background-color: #464646;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+
+    h3 {
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+    }
+
+    label {
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        /* margin-left: 5px; */
+        
+    }
+
+    input {
+        width: 50px;
+        background-color: #ffffff00;
+        border: none;
+        outline: none;
+        color: #5FFEB9;
+        font-size: 20px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: center;
+        transition: all 0.15s ease-in-out;
+    }
+
+    input:hover {
+        color: #40a77a;
+    }
+
+    button {
+        background-color: #31313100;
+        color: #5FFEB9;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        font-size: 20px;
+        /* text-align: left; */
+        transition: all 0.15s ease-in-out;
+        margin: 5px;
+        margin-top: 20px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    button:hover {
+        color: #40a77a;
+    }
+}
+
+#timerDisplay {
+    margin-top: 25px;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#mainSection {
+    margin-left: 200px;
 }
 
 /* #left_img {

@@ -3,10 +3,8 @@ export default function WebSpeachText({ sentences, spoken, normalize }) {
     return (
         <div className="comparison-container">
             {sentences.map((sentence, index) => {
-                // Берем результат из массива spoken по индексу
                 const currentSpoken = spoken[index];
                 
-                // Сравниваем
                 const isMatch = normalize(sentence) === normalize(currentSpoken);
 
                 return (
